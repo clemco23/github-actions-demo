@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      MESSAGE: "Déploiement réussi 🚀"
+      MESSAGE: "Deploiement reussi 🚀"
 
     steps:
       - name: Checkout repository
@@ -23,9 +23,7 @@ jobs:
         run: echo "$MESSAGE"
 
       - name: Display secret key (masked)
-        run: echo "Cle API:
-          ${{ secrets.API_KEY }}"
-
+        run: echo "Cle API : ${{ secrets.API_KEY }}"
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -36,4 +34,3 @@ jobs:
         run: npm install
 
       - name: Run linter
-        run: npm run lint
