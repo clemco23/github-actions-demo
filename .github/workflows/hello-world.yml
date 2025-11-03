@@ -1,6 +1,5 @@
 name: Node.js Lint Workflow
 
-# Le workflow se déclenche sur push ET sur pull request
 on:
   push:
     branches:
@@ -14,21 +13,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Étape 1 : Afficher un message
+      # 🧩 Étape 1 : Récupérer le code du dépôt
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 🖨️ Étape 2 : Afficher un message
       - name: Print Hello World
         run: echo "Hello World from GitHub Actions 🚀"
 
-      # Étape 2 : Installer Node.js
+      # 🟢 Étape 3 : Installer Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      # Étape 3 : Installer les dépendances
+      # 📦 Étape 4 : Installer les dépendances
       - name: Install dependencies
         run: npm install
 
-      # Étape 4 : Vérifier le code avec eslint
+      # 🔍 Étape 5 : Vérifier le code (lint)
       - name: Run linter
         run: npm run lint
-
