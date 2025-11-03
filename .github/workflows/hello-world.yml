@@ -6,21 +6,18 @@ on:
       - main
   pull_request:
     branches:
-      - main
+    - main
 
-jobs:
+jobs: 
   greeting:
     runs-on: ubuntu-latest
 
     env:
-      MESSAGE: "Déploiement réussi 🚀"
+      MESSAGE: "Déploiement réussi !!"
 
-    steps:
+      steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Print Hello World
-        run: echo "Hello World from GitHub Actions"
 
       - name: Display message variable
         run: echo "$MESSAGE"
@@ -33,8 +30,10 @@ jobs:
         with:
           node-version: 18
 
+
       - name: Install dependencies
         run: npm install
 
       - name: Run linter
         run: npm run lint
+      
