@@ -6,35 +6,32 @@ on:
       - main
   pull_request:
     branches:
-    - main
+      - main
 
-jobs: 
+jobs:
   greeting:
     runs-on: ubuntu-latest
 
     env:
-      MESSAGE: "Déploiement réussi !!"
+      MESSAGE: "Déploiement réussi 🚀"
 
-      steps:
-        - name: Checkout repository
-          uses: actions/checkout@v4
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-        - name: Display message variable
-          run: echo "$MESSAGE"
+      - name: Display message variable
+        run: echo "$MESSAGE"
 
-        - name: Display secret key (masked)
-          run: echo "Clé API : ${{ secrets.API_KEY }}"
+      - name: Display secret key (masked)
+        run: echo "Clé API : ${{ secrets.API_KEY }}"
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
 
-        - name: Setup Node.js
-          uses: actions/setup-node@v4
-          with:
-            node-version: 18
+      - name: Install dependencies
+        run: npm install
 
-
-        - name: Install dependencies
-          run: npm install
-
-        - name: Run linter
-          run: npm run lint
-      
+      - name: Run linter
+        run: npm run lint
