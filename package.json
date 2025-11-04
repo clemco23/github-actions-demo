@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "Projet de test GitHub Actions",
   "scripts": {
-    "lint": "echo 'Simulated lint check ✅'"
+    "lint": "echo 'Simulated lint check ✅'",
+    "test": "echo 'Simulated tests passed ✅'"
   }
+  
 }
