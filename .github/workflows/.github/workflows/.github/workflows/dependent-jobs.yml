@@ -1,0 +1,22 @@
+name: Dependent Jobs Example
+
+on: [push]
+
+jobs:
+  # 🏗️ 1. Premier job : compilation
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build project
+        run: echo "Compilation du projet réussie ✅"
+
+  # 🧪 2. Second job : tests (dépend du premier)
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Run tests
+        run: echo "Tests exécutés avec succès 🚀"
