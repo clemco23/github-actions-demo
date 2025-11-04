@@ -1,11 +1,10 @@
 name: Daily Cron Job
 
-# Exécution programmée chaque jour à 8h du matin
+
 on:
   schedule:
-    - cron: '25 11 * * *'   # Heure UTC (8h UTC = 9h en France l'hiver)
-  workflow_dispatch:      # Permet aussi de le lancer manuellement si besoin
-
+    - cron: '25 11 * * *'   
+  workflow_dispatch:      
 jobs:
   daily-task:
     runs-on: ubuntu-latest
