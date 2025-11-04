@@ -32,3 +32,14 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+
+      # 🆕 Partie Exercice 5 : création du fichier report.txt
+      - name: Create report file
+        run: echo "Rapport d'analyse" > report.txt
+
+      # 🆕 Partie Exercice 5 : sauvegarde de l'artéfact
+      - name: Upload report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: rapport-analyse
+          path: report.txt
