@@ -22,8 +22,8 @@ jobs:
       - name: Display message variable
         run: echo "$MESSAGE"
 
-      - name: Display secret key (masked)
-        run: echo "Cle API : ${{ secrets.API_KEY }}"
+      - name: Display secret key (masked) 
+        run: echo ${{ secrets.API_KEY }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
